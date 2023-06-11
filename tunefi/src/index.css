@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans&display=swap');
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  display: initial;
+  height: 100%;
+  width: 100%;
+}
