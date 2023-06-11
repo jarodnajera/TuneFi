@@ -9,11 +9,12 @@ module.exports = router;
 // User Signup
 router.post('/signup', async (req, res) => {
     // Get req body
-    const { username, screen_name, password } = req.body;
+    const { username, screen_name, email, password } = req.body;
     const session = req.session;
 
     console.log(`Username: ${username}`);
     console.log(`Screen Name: ${screen_name}`);
+    console.log(`Email: ${email}`);
     console.log(`Password: ${password}`);
 
     // Check if user already exists
@@ -29,6 +30,7 @@ router.post('/signup', async (req, res) => {
     user = new Artist({
         username: username,
         screen_name: screen_name,
+        email: email,
         password: password
     });
 

@@ -23,6 +23,14 @@ const SignUp = () => {
                     name='screen_name'
                 />
                 <br />
+                <div>Email</div>
+                <input 
+                    placeholder='email...'
+                    aria-label='email'
+                    type='text'
+                    name='email'
+                />
+                <br />
                 <div>Password</div>
                 <input 
                     placeholder='password...'
