@@ -7,7 +7,7 @@ import Home from './screens/Home';
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import ArtistProfile from './screens/ArtistProfile';
-import { HandleSignUp } from './actions/AuthActions';
+import { HandleSignUp, HandleLogin } from './actions/AuthActions';
 
 import './App.css'
 
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />,
+        action: HandleLogin,
       },
       {
         path: '/signup',

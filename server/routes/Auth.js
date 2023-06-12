@@ -26,16 +26,22 @@ router.post('/signup', async (req, res) => {
         return res.json({ message: 'User already exists', status: false });
     }
     
+    const saltRounds = 10
+    const hashPass = await bcrypt.hash(password, saltRounds);
+    
     // Make new user
     user = new Artist({
         username: username,
         screen_name: screen_name,
         email: email,
-        password: password
-    });
+        password: hashPass,
+    })
+
+    console.log('Hash ', user.password)
 
     try {
         session.authenticated = true;
+        // user.markModified('password');
         await user.save();
         res.json({ message: 'Registered successfully', status: true });
     }
@@ -62,10 +68,13 @@ router.post('/login', async (req, res) => {
         return res.json({ message: 'Invalid username', status: false });
     }
     // Incorrect password
-    else if (user.password !== password) {
-        console.log('Failed to login! Incorrect password!');
-        return res.json({ message: 'Incorrect password', status: false });
-    }
+    bcrypt.compare(password, user.password, function(err) {
+        if (err){
+            // handle error
+            console.log('Failed to login! Incorrect password!');
+            return res.json({ message: 'Incorrect password', status: false });
+        }
+      });
     
     // Login successful
     session.authenticated = true;
