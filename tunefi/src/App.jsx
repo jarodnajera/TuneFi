@@ -7,9 +7,12 @@ import Home from './screens/Home';
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import ArtistProfile from './screens/ArtistProfile';
+import AudioPlayer from './components/audio/AudioPlayer';
 import { HandleSignUp } from './actions/AuthActions';
 
 import './App.css'
+import './components/audio/audio.css';
+import './components/audio/customize-progress-bar.css';
 
 // Using React Router
 // Initializing BrowserRouter
@@ -44,6 +47,7 @@ export default function App() {
   return (
     <>
       <RouterProvider router={router} />
+      
     </>
   )
 }
