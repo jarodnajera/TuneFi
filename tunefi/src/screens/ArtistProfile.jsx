@@ -6,6 +6,7 @@ import default_pfp from '../assets/default_user.svg';
 
 import './ArtistProfile.css';
 
+
 const ArtistProfile = () => {
     const { auth, artist_name, bio, followers, following, is_following } = useLoaderData();
     const [edit, setEdit] = useState(false);

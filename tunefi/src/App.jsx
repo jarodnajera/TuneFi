@@ -9,6 +9,7 @@ import Home from './screens/Home';
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import ArtistProfile from './screens/ArtistProfile';
+import AudioPlayer from './components/audio/AudioPlayer';
 import MusicTab from './screens/MusicTab';
 import EventsTab from './screens/EventsTab';
 import CommunityTab from './screens/CommunityTab';
@@ -22,7 +23,10 @@ import { SearchLoader } from './loaders/SearchLoaders';
 import { HandleSignUp, HandleLogin } from './actions/AuthActions';
 import { UpdateArtist, AddPost, AddEvent } from './actions/ArtistActions';
 
+
 import './App.css'
+import './components/audio/audio.css';
+import './components/audio/customize-progress-bar.css';
 
 // Using React Router
 // Initializing BrowserRouter
@@ -82,6 +86,7 @@ export default function App() {
   return (
     <>
       <RouterProvider router={router} />
+      
     </>
   )
 }
