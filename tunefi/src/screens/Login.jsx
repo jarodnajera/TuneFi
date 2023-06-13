@@ -17,6 +17,7 @@ const Login = () => {
                         aria-label='username'
                         type='text'
                         name='username'
+                        required
                     />
                     <br />
                     <div>Password</div>
@@ -25,6 +26,7 @@ const Login = () => {
                         aria-label='password'
                         type='password'
                         name='password'
+                        required
                     />
                     <Button id='login-btn' variant='dark' type='submit'>Login</Button>
                 </Form>

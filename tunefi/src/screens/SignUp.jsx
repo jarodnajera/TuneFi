@@ -17,6 +17,7 @@ const SignUp = () => {
                         aria-label='username'
                         type='text'
                         name='username'
+                        required
                     />
                     <br />
                     <div>Screen Name</div>
@@ -25,6 +26,7 @@ const SignUp = () => {
                         aria-label='screen name'
                         type='text'
                         name='screen_name'
+                        required
                     />
                     <br />
                     <div>Password</div>
@@ -33,6 +35,7 @@ const SignUp = () => {
                         aria-label='password'
                         type='password'
                         name='password'
+                        required
                     />
                     <Button id='signup-btn' variant='dark' type='submit'>Sign Up</Button>
                 </Form>

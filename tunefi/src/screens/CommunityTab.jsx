@@ -25,6 +25,7 @@ const CommunityTab = () => {
                         aria-label='new_post'
                         type='text'
                         name='new_post'
+                        required
                     />
                     <Button id='submit-btn' variant='dark' type='submit'>Add</Button>
                 </Form>
