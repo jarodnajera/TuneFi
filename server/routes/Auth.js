@@ -9,14 +9,15 @@ module.exports = router;
 // User Signup
 router.post('/signup', async (req, res) => {
     // Get req body
-    const { username, screen_name, password } = req.body;
+    const { username, screen_name, email, password } = req.body;
 
     console.log(`Username: ${username}`);
     console.log(`Screen Name: ${screen_name}`);
+    console.log(`Email: ${email}`);
     console.log(`Password: ${password}`);
 
-    // Check if user already exists
-    let user = await Artist.findOne({ username });
+  // Check if user already exists
+  let user = await Artist.findOne({ username });
 
     // User exists
     if (user) {
@@ -24,11 +25,15 @@ router.post('/signup', async (req, res) => {
         return res.json({ message: 'User already exists', status: false });
     }
     
+    const saltRounds = 10
+    const hashPass = await bcrypt.hash(password, saltRounds);
+  
     // Make new user
     user = new Artist({
         username: username,
         screen_name: screen_name,
-        password: password,
+        email: email,
+        password: hashPass,
         bio: 'Click "Edit Profile" to change your bio!',
         followers: [],
         following: [],
@@ -48,14 +53,14 @@ router.post('/signup', async (req, res) => {
 
 // User Login
 router.post('/login', async (req, res) => {
-    // Get req body
-    const { username, password } = req.body;
+  // Get req body
+  const { username, password } = req.body;
 
-    console.log(`Username: ${username}`);
-    console.log(`Password: ${password}`);
+  console.log(`Username: ${username}`);
+  console.log(`Password: ${password}`);
 
-    // Check if user exists
-    const user = await Artist.findOne({ username });
+  // Check if user exists
+  const user = await Artist.findOne({ username });
 
     // User doesn't exist
     if (!user) {
@@ -63,10 +68,13 @@ router.post('/login', async (req, res) => {
         return res.json({ message: 'Invalid username', status: false });
     }
     // Incorrect password
-    else if (user.password !== password) {
-        console.log('Failed to login! Incorrect password!');
-        return res.json({ message: 'Incorrect password', status: false });
-    }
+    bcrypt.compare(password, user.password, function(err) {
+        if (err){
+            // handle error
+            console.log('Failed to login! Incorrect password!');
+            return res.json({ message: 'Incorrect password', status: false });
+        }
+      });
     
     // Login successful
     req.session.authenticated = true;
@@ -79,8 +87,8 @@ router.post('/login', async (req, res) => {
 
 // User Logout
 router.get('/logout', (req, res) => {
-    // Clear and destroy session
-    console.log('Session destroyed');
-    req.session.destroy();
-    res.send({message: 'Logged out', status: true});
+  // Clear and destroy session
+  console.log('Session destroyed');
+  req.session.destroy();
+  res.send({message: 'Logged out', status: true});
 })
