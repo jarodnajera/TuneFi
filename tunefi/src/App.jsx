@@ -8,7 +8,8 @@ import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import ArtistProfile from './screens/ArtistProfile';
 import AudioPlayer from './components/audio/AudioPlayer';
-import { HandleSignUp } from './actions/AuthActions';
+import { HandleSignUp, HandleLogin  } from './actions/AuthActions';
+
 
 import './App.css'
 import './components/audio/audio.css';
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />,
+        action: HandleLogin,
       },
       {
         path: '/signup',
