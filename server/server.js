@@ -3,14 +3,10 @@ const cors = require('cors');
 const session = require('express-session');
 const dotenv = require('dotenv');
 const body_parser = require('body-parser');
-const cookie_parser = require('cookie-parser');
 const mongoose = require('mongoose');
 
 // Initialize express
 const app = express();
-
-// Routes
-const auth = require('../server/routes/Auth');
 
 // Configure .env
 dotenv.config();
@@ -19,14 +15,14 @@ dotenv.config();
 app.use(cors({origin: 'http://localhost:5173', credentials: true}));
 app.use(body_parser.urlencoded({ extended: true }));
 app.use(body_parser.json());
-app.use(cookie_parser());
 
 // Session Setup
-app.use(session({
-    secret: 'a',
+const session_middleware = session({
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: process.env.SESSION_SECRET
-}));
+    saveUninitialized: false,
+});
+app.use(session_middleware);
 
 // Connect to Database
 mongoose.connect(process.env.MONGO_URL);
@@ -35,8 +31,26 @@ const database = mongoose.connection;
 database.on('error', (error) => console.log(error));
 database.once('open', () => console.log('Connected to database!'));
 
+// Routes
+const auth = require('./routes/Auth');
+const artist = require('./routes/Artist');
+const search = require('./routes/Search');
 // Use Routes
 app.use('/api/auth/', auth);
+app.use('/api/artist/', artist);
+app.use('/api/search/', search);
+
+// Check if session has been authenticated
+app.get('/', (req, res, next) => {
+    if (req.session.authenticated) {
+        res.json({ status: true, screen_name: req.session.screen_name });
+        next();
+    }
+    else {
+        res.json({ status: false });
+    }
+})
+
 
 // Server Listen
 app.listen(process.env.PORT, () => {

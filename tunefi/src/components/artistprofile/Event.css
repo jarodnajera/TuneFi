@@ -1,0 +1,17 @@
+.event-content {
+    background-color: #FCF0FF;
+    width: 50%;
+    margin-left: 35px;
+    border-radius: .4em;
+    box-shadow: 5px 7px #c3b5c7;
+    padding: 10px;
+}
+
+.title {
+    font-size: 25px;
+}
+
+.location, .time, .date {
+    font-size: 18px;
+    margin-left: 10px;
+}

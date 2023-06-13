@@ -10,7 +10,6 @@ module.exports = router;
 router.post('/signup', async (req, res) => {
     // Get req body
     const { username, screen_name, password } = req.body;
-    const session = req.session;
 
     console.log(`Username: ${username}`);
     console.log(`Screen Name: ${screen_name}`);
@@ -29,11 +28,16 @@ router.post('/signup', async (req, res) => {
     user = new Artist({
         username: username,
         screen_name: screen_name,
-        password: password
+        password: password,
+        bio: 'Click "Edit Profile" to change your bio!',
+        followers: [],
+        following: [],
     });
 
     try {
-        session.authenticated = true;
+        req.session.authenticated = true;
+        req.session.screen_name = screen_name;
+        req.session.username = username;
         await user.save();
         res.json({ message: 'Registered successfully', status: true });
     }
@@ -46,7 +50,6 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     // Get req body
     const { username, password } = req.body;
-    const session = req.session;
 
     console.log(`Username: ${username}`);
     console.log(`Password: ${password}`);
@@ -66,9 +69,12 @@ router.post('/login', async (req, res) => {
     }
     
     // Login successful
-    session.authenticated = true;
-    session.user = user.screen_name;
-    res.json({ message: 'Logged in', status: true});
+    req.session.authenticated = true;
+    req.session.screen_name = user.screen_name;
+    req.session.username = user.username;
+    console.log(req.session);
+    console.log(user.screen_name);
+    res.json({ message: 'Logged in', status: true, screen_name: user.screen_name});
 });
 
 // User Logout

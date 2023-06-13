@@ -13,6 +13,20 @@ const ArtistSchema = new mongoose.Schema({
         required: true,
         type: String
     },
+    bio: {
+        required: true,
+        type: String
+    },
+    followers: [{
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Artist'
+    }],
+    following: [{
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Artist'
+    }],
 });
 
 module.exports = mongoose.model('Artist', ArtistSchema);
