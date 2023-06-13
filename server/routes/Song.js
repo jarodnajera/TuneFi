@@ -32,15 +32,20 @@ router.post('/upload', upload.single('song'), async (req, res) => {
     const artistUsername = req.session.username; // Assuming the artist's username is sent in the request body
     
     // Find the artist by username and update their songs array
-    const artist = await Artist.findOneAndUpdate(
-      { username: artistUsername },
-      { $push: { songs: newSong } }
-    );
-    await artist.save();
+    try{
+      await Artist.findOneAndUpdate(
+        { username: artistUsername },
+        { $push: { songs: newSong } }
+      )
+    }
+    // const artist = 
+    // );
+    // await artist.save();
+    catch{
+   
+        res.status(404).send('Artist not found.');
+        return;
 
-    if (!artist) {
-      res.status(404).send('Artist not found.');
-      return;
     }
 
     res.send('Song uploaded and added to artist\'s songs.');
