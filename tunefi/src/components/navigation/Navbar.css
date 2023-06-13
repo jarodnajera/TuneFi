@@ -15,6 +15,17 @@
     width: 50px;
 }
 
+#nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#nav-tabs > a {
+    color: black;
+    font-size: 18px;
+}
+
 #tagline {
     font-size: 30px;
 }

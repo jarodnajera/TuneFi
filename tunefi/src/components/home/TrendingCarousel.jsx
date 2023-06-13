@@ -22,14 +22,6 @@ const TrendingCarousel = () => {
                     <img src={'https://upload.wikimedia.org/wikipedia/commons/6/64/Garden_roses_%28yellow-red%29.jpg'} className="w-25 rose" />
                 </Row>
             </Carousel.Item>
-            <Carousel.Item>
-                <Row>
-                    <img src={'https://upload.wikimedia.org/wikipedia/commons/6/64/Garden_roses_%28yellow-red%29.jpg'} className="w-25 rose" />
-                    <img src={'https://upload.wikimedia.org/wikipedia/commons/6/64/Garden_roses_%28yellow-red%29.jpg'} className="w-25 rose" />
-                    <img src={'https://upload.wikimedia.org/wikipedia/commons/6/64/Garden_roses_%28yellow-red%29.jpg'} className="w-25 rose" />
-                    <img src={'https://upload.wikimedia.org/wikipedia/commons/6/64/Garden_roses_%28yellow-red%29.jpg'} className="w-25 rose" />
-                </Row>
-            </Carousel.Item>
         </Carousel>
     );
 }

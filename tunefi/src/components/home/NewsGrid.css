@@ -8,6 +8,42 @@
 #main-news {
     background-color: black;
     width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+#lodea-img {
+    width: 60%;
+    height: 100%;
+}
+
+#lodea-caption {
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: large;
+    background-color: #C4A2E4;
+    padding: 10px;
+    border-radius: .5em;
+}
+
+.side-img {
+    width: 45%;
+    height: 100%;
+}
+
+.side-caption {
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    font-size: large;
+    background-color: #c4a2e4;
+    padding: 10px;
+    border-radius: .5em;
 }
 
 #side-news {
@@ -15,16 +51,15 @@
     flex-direction: column;
     gap: 5px;
     width: 35%;
+    height: 100%;
 }
 
-#item-1 {
+.side-wrapper {
     background-color: black;
     height: 50%;
     width: 100%;
-}
-
-#item-2 {
-    background-color: black;
-    height: 50%;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
 }
