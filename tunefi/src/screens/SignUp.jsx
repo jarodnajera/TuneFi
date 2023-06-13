@@ -34,6 +34,15 @@ const SignUp = () => {
                         type='password'
                         name='password'
                     />
+                    <br />
+                    <div>Email</div>
+                    <input 
+                      placeholder='email...'
+                      aria-label='email'
+                      type='text'
+                      name='email'
+                    />
+                    <br />
                     <Button id='signup-btn' variant='dark' type='submit'>Sign Up</Button>
                 </Form>
                 <br />

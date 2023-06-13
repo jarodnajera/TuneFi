@@ -23,7 +23,6 @@ import { SearchLoader } from './loaders/SearchLoaders';
 import { HandleSignUp, HandleLogin } from './actions/AuthActions';
 import { UpdateArtist, AddPost, AddEvent } from './actions/ArtistActions';
 
-
 import './App.css'
 import './components/audio/audio.css';
 import './components/audio/customize-progress-bar.css';
