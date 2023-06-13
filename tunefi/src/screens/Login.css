@@ -25,3 +25,8 @@
     width: 100px;
     margin: auto;
 }
+
+#tfa-container {
+    display: flex;
+    gap: 5px;
+}

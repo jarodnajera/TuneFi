@@ -18,9 +18,9 @@ app.use(body_parser.json());
 
 // Session Setup
 const session_middleware = session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
 });
 app.use(session_middleware);
 
@@ -44,17 +44,17 @@ app.use('/api/song/', song);
 
 // Check if session has been authenticated
 app.get('/', (req, res, next) => {
-    if (req.session.authenticated) {
-        res.json({ status: true, screen_name: req.session.screen_name });
-        next();
-    }
-    else {
-        res.json({ status: false });
-    }
+  if (req.session.authenticated) {
+    res.json({ status: true, screen_name: req.session.screen_name });
+    next();
+  }
+  else {
+    res.json({ status: false });
+  }
 })
 
 
 // Server Listen
 app.listen(process.env.PORT, () => {
-    console.log(`Server listening on Port ${process.env.PORT}`);
+  console.log(`Server listening on Port ${process.env.PORT}`);
 });

@@ -44,6 +44,7 @@ const SignUp = () => {
                       aria-label='email'
                       type='text'
                       name='email'
+                      required
                     />
                     <br />
                     <Button id='signup-btn' variant='dark' type='submit'>Sign Up</Button>
