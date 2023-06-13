@@ -10,7 +10,6 @@ module.exports = router;
 router.post('/signup', async (req, res) => {
   // Get req body
   const { username, screen_name, password } = req.body;
-  const session = req.session;
 
   console.log(`Username: ${username}`);
   console.log(`Screen Name: ${screen_name}`);
@@ -24,29 +23,32 @@ router.post('/signup', async (req, res) => {
     console.log('Failed to make user! Username already exists!');
     return res.json({ message: 'User already exists', status: false });
   }
-    
-  // Make new user
-  user = new Artist({
-    username: username,
-    screen_name: screen_name,
-    password: password
-  });
+    // Make new user
+    user = new Artist({
+        username: username,
+        screen_name: screen_name,
+        password: password,
+        bio: 'Click "Edit Profile" to change your bio!',
+        followers: [],
+        following: [],
+    });
 
-  try {
-    session.authenticated = true;
-    await user.save();
-    res.json({ message: 'Registered successfully', status: true });
-  }
-  catch (error) {
-    console.log(error);
-  }
+    try {
+        req.session.authenticated = true;
+        req.session.screen_name = screen_name;
+        req.session.username = username;
+        await user.save();
+        res.json({ message: 'Registered successfully', status: true });
+    }
+    catch (error) {
+        console.log(error);
+    }
 })
 
 // User Login
 router.post('/login', async (req, res) => {
   // Get req body
   const { username, password } = req.body;
-  const session = req.session;
 
   console.log(`Username: ${username}`);
   console.log(`Password: ${password}`);
@@ -65,10 +67,13 @@ router.post('/login', async (req, res) => {
     return res.json({ message: 'Incorrect password', status: false });
   }
     
-  // Login successful
-  session.authenticated = true;
-  session.user = user.screen_name;
-  res.json({ message: 'Logged in', status: true});
+    // Login successful
+    req.session.authenticated = true;
+    req.session.screen_name = user.screen_name;
+    req.session.username = user.username;
+    console.log(req.session);
+    console.log(user.screen_name);
+    res.json({ message: 'Logged in', status: true, screen_name: user.screen_name});
 });
 
 // User Logout

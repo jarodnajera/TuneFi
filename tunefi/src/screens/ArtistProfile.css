@@ -1,0 +1,48 @@
+#artist-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    
+}
+
+.artist-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    width: 35%;
+    background-color: #FCF0FF;
+}
+
+.artist-name {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.artist-pfp {
+    border-radius: 50%;
+    margin-top: 20px;
+    height: 175px;
+}
+
+.artist-bio {
+    text-align: center;
+    margin: 0px 20px;
+    font-size: 1em;
+}
+
+#edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: .3em;
+    box-shadow: 5px 7px #9e7cbe;
+    background-color: #d9c4ed;
+}
+
+.following-followers {
+    display: flex;
+    gap: 55px;
+}

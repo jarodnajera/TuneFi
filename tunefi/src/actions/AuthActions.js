@@ -8,15 +8,16 @@ export async function HandleSignUp({ request }) {
     // Make POST fetch
     let response = await fetch('http://localhost:3001/api/auth/signup', {
                         method: 'POST',
-                        credentials: "include",
+                        credentials: 'include',
                         headers: {
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify(user_data),
                     })
+    let data = await response.json();
 
     // Successfully signed up
-    if(response.status) {
+    if(data.status) {
         console.log('User made!');
         return redirect(`/artist/${user_data.screen_name}`);
     }
@@ -39,14 +40,9 @@ export async function HandleLogin({ request }) {
     let data = await response.json();
     
     // Successfully logged in
-    // console.log(data);
-    // if (data.status) {
-    //     console.log('User logged in successful!');
-    //     return redirect(`/artist/${data.screen_name}/music`);
-    // }
     console.log(data);
     if (data.status) {
         console.log('User logged in successful!');
-        return redirect(`/artist/${data.screen_name}`);
+        return redirect(`/artist/${data.screen_name}/music`);
     }
 }
