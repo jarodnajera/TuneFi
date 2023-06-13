@@ -9,7 +9,12 @@ const fs = require('fs');
 
 module.exports = router;
 
+// const storage = multer.memoryStorage();
+// const upload = multer({storage: storage});
 router.post('/upload', upload.single('song'), async (req, res) => {
+  // file.buffer = req.file;
+  console.log('cookie', req.cookies)
+  console.log('username', req.session)
   try {
     if (!req.file) {
       res.status(400).send('No file uploaded.');
@@ -24,7 +29,7 @@ router.post('/upload', upload.single('song'), async (req, res) => {
     };
     console.log(newSong);
     // const artistUsername = req.body.artistUsername; // Assuming the artist's username is sent in the request body
-    const artistUsername = "safeduck"; // Assuming the artist's username is sent in the request body
+    const artistUsername = req.session.username; // Assuming the artist's username is sent in the request body
     
     // Find the artist by username and update their songs array
     const artist = await Artist.findOneAndUpdate(

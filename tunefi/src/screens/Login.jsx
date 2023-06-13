@@ -1,6 +1,6 @@
 import { Form, useNavigate } from 'react-router-dom';
 import AudioPlayer from '../components/audio/AudioPlayer';
-import UploadSong from '../components/audio/UploadSong';
+
 import '../components/audio/audio.css';
 import '../components/audio/customize-progress-bar.css';
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
             <div>Don&apos;t have an account yet?</div>
             <button onClick={() => navigate('/signup')}>Sign Up</button>
             <AudioPlayer/>
-            <UploadSong/>
+            
         </div>
         
     );
