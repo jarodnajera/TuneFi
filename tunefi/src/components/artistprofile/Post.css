@@ -1,0 +1,39 @@
+.post-container {
+    margin: 10px 25px;
+    padding: 10px;
+    border-bottom: 1px solid #C4A2E4;
+}
+
+.user {
+    font-size: larger;
+}
+
+.date {
+    font-style: italic;
+}
+
+.like-icon {
+    height: 30px;
+}
+
+.like-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.post-content {
+    margin-left: 30px;
+}
+
+.reply-btn {
+    font-size: 15px;
+    height: 25px;
+    color: white;
+    background-color: black;
+    border-radius: .3em;
+    border: 1px solid black;
+    margin-left: 50px;
+}
