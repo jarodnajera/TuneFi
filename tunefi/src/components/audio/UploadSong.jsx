@@ -22,6 +22,7 @@ const UploadSong = () => {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
+        withCredentials: true,
       });
       console.log('File uploaded successfully');
     } catch (error) {

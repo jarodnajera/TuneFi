@@ -1,4 +1,0 @@
-﻿In the linear time selection algorithm, what is the purpose of finding the "median of medians"?
-To obtain a good pivot for partitioning.
-To calculate the average of all the elements.
-To sort the elements in ascending order.

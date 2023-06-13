@@ -33,13 +33,13 @@ database.once('open', () => console.log('Connected to database!'));
 
 // Routes
 const auth = require('./routes/Auth');
-const artist = require('./routes/Artist');
-const search = require('./routes/Search');
+// const artist = require('./routes/Artist');
+// const search = require('./routes/Search');
 const song = require('../server/routes/Song');
 // Use Routes
 app.use('/api/auth/', auth);
-app.use('/api/artist/', artist);
-app.use('/api/search/', search);
+// app.use('/api/artist/', artist);
+// app.use('/api/search/', search);
 app.use('/api/song/', song);
 
 // Check if session has been authenticated
