@@ -71,17 +71,3 @@ export async function AddEvent({ request, params }) {
         return redirect(`/artist/${artist_page}/events`);
     }
 }
-
-export async function AddSong({ request, params }) {
-    const artist_page = params.artistID;
-    const form_data = await request.formData();
-    const song = Object.fromEntries(form_data);
-
-    // Make POST fetch
-    let response = await fetch()
-    let data = await response.json();
-
-    if(data.status) {
-        return redirect(`/artist/${artist_page}/music`);
-    }
-}
