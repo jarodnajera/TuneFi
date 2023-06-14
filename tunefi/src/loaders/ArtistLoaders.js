@@ -49,3 +49,12 @@ export async function EventsLoader({ params }) {
     console.log(data);
     return data;
 }
+
+export async function MusicLoader({ params }) {
+    // Load music for music tab
+    const artist_page = params.artistID;
+    let response = await fetch()
+    let data = await response.json();
+    
+    return data;
+}
