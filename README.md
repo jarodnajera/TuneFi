@@ -5,13 +5,13 @@ Deployment: http://155.248.197.4:5173/
 Created by: Jarod Najera, Anthony Mena, Jose Mena, Sachin Chopra
 
 ## Features
-*
-- User authentication: Allows users to create an account, log in, and log out. 2FA is supported
--Song upload: Users can upload their songs to the database
--Song player: Built in music player allows users to listen other artists’ music
--Profiling: Users can update their screen name, bio, and add events/posts. They can also view other user’s profiles.
--Rating and Commenting: Users can comment on the artist’s music and events in the community tab. An artist's popularity is measured by the number of followers and likes their profiles and posts have.
--Search: Users can use the search bar to look up their favorite artists
+
+* User authentication: Allows users to create an account, log in, and log out. 2FA is supported
+* Song upload: Users can upload their songs to the database
+* Song player: Built in music player allows users to listen other artists’ music
+* Profiling: Users can update their screen name, bio, and add events/posts. They can also view other user’s profiles.
+* Rating and Commenting: Users can comment on the artist’s music and events in the community tab. An artist's popularity is measured by the number of followers and likes their profiles and posts have.
+* Search: Users can use the search bar to look up their favorite artists
 
 ## Getting Started
 
