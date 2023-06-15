@@ -20,26 +20,32 @@ Created by: Jarod Najera, Anthony Mena, Jose Mena, Sachin Chopra
    ```bash
    https://github.com/jarodnajera/TuneFi.git
 Install the front end dependencies
+```bash
 cd tunefi
+```bash
 npm install
 
 Install the back end dependencies
+```bash
 cd server
+```bash
 npm install
 
 Configure the .env file with your own mongoDB database
 
 Start the front end (Vite)
+```bash
 npm run dev
 
 Start the back end 
+```bash
 nodemon server 
 
 Access the application:
 
 Open your web browser and visit http://localhost:5173
 ## API Endpoints
-
+```bash
 POST /signup
 POST /login
 GET /logout
@@ -53,6 +59,7 @@ POST /id/:artistID/follow
 DELETE /id/:artistID/follow
 POST /likes
 GET /:query
+```bash
 
 ##Directory Structure
 
