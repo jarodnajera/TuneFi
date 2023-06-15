@@ -1,7 +1,7 @@
 ## TuneFi: by small artists, for small artists. Follow, unfollow, like people and posts, and search
 
 A full stack MERN application that allows small artists to share music, listen to music, post their upcoming events, and view community feedback.
-
+Deployment: http://155.248.197.4:5173/
 Created by: Jarod Najera, Anthony Mena, Jose Mena, Sachin Chopra
 
 ## Features
