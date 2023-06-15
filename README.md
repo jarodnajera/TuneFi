@@ -5,7 +5,7 @@ Deployment: http://155.248.197.4:5173/
 Created by: Jarod Najera, Anthony Mena, Jose Mena, Sachin Chopra
 
 ## Features
-
+*
 - User authentication: Allows users to create an account, log in, and log out. 2FA is supported
 -Song upload: Users can upload their songs to the database
 -Song player: Built in music player allows users to listen other artists’ music
